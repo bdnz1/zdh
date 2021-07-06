@@ -1,0 +1,61 @@
+'''
+    python自动化刷抖音
+'''
+
+from appium  import  webdriver
+from appium.webdriver.common.touch_action import TouchAction
+import  time
+
+server = "http://localhost:4723/wd/hub"
+param = {
+			  "deviceName": "127.0.0.1:62001",
+			  "platformName": "Android",
+			  "platformVersion": "7.1.2",
+			  "appPackage": "com.ss.android.ugc.aweme",
+			  "appActivity": "com.ss.android.ugc.aweme.splash.SplashActivity"
+}
+driver = webdriver.Remote(server,param)
+
+
+time.sleep(10)
+
+el1 = driver.find_element_by_id("com.ss.android.ugc.aweme:id/bdb")
+el1.click()
+time.sleep(5)
+el2 = driver.find_element_by_id("com.android.packageinstaller:id/permission_allow_button")
+el2.click()
+time.sleep(6)
+el3 = driver.find_element_by_id("com.android.packageinstaller:id/permission_allow_button")
+el3.click()
+time.sleep(5)
+TouchAction(driver).press(x=359, y=979).move_to(x=384, y=281).release().perform()
+time.sleep(5)
+i=1
+while i<=20:
+	TouchAction(driver).press(x=359, y=979).move_to(x=384, y=281).release().perform()
+	i=i+1
+	time.sleep(3)
+# time.sleep(10)
+# driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
